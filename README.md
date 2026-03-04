@@ -1,59 +1,44 @@
-# EduParentPortal
+# 👨‍👩‍👧 Parent Portal - EduConnect System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+## 📖 Overview
+The Parent Portal is a dedicated module within the broader educational management system. It is designed to provide parents with secure, comprehensive visibility into their child's academic performance, daily attendance, and long-term career goals. The portal emphasizes accountability by linking term results directly to university admission requirements and agreed-upon academic pledges.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Key Features
+This portal includes the following core functionalities based on the project requirements:
 
-```bash
-ng serve
-```
+**Secure Student Dashboard:** Parents can see their kids' dashboard performance. For privacy and security, parents will only see the student they are linked to.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Academic Pledges:** At the beginning of the year, parents and kids must establish an academic pledge. This pledge is set against each and every subject the student is registered for. The target marks are advised by the career the student wants to choose.
 
-## Code scaffolding
+**Attendance Monitoring:** Parents are able to see student attendance for weekly and extra classes.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Career & APS Tracking:** Parents must capture 2 career choices for their student. They also need to capture the Admission Point Score (APS) required for those careers from the varsities of their choice. 
 
-```bash
-ng generate component component-name
-```
+**Term-by-Term Comparisons:** Each and every term, the system will compare the student's actual APS results against the target APS for their chosen careers.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**Teacher Feedback:** Parents are able to see teacher comments for specific subjects.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🚀 Getting Started
 
-To build the project run:
+### Prerequisites
+* Node.js (v18.x or higher)
+* Angular CLI (v17.x or higher)
+* NPM or Yarn package manager
 
-```bash
-ng build
-```
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MichaelLamula/Edu-Int-Parent-Portal-Front-End.git
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Install dependencies:
+   ```bash
+   npm install
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. Start the development server:
+   ```bash
+   npm start  
+   
