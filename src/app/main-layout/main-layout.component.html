@@ -1,0 +1,18 @@
+<div class="portal-container">
+  <header class="header">
+    <div class="logo-section">
+      <div class="logo-placeholder">[Logo]</div>
+      <h1>Parent Portal | Welcome, {{ parentName() }}</h1>
+    </div>
+    <button class="logout-btn" (click)="logout()">[Logout]</button>
+  </header>
+
+  <div class="main-body">
+    <aside class="sidenav-container">
+      <app-sidenav></app-sidenav>
+    </aside>
+    <main class="content-container">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.career-tracker, .progress-tracker, .attendance-snapshot, .teacher-comments {
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  padding: 15px;
+}
+
+.career-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.attendance-stats {
+  display: flex;
+  justify-content: space-around;
+}

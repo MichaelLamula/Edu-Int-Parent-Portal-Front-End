@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { PledgesComponent } from './pledges/pledges.component';
+import { TeacherNotesComponent } from './teacher-notes/teacher-notes.component';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    MainLayoutComponent,
+    SidenavComponent,
+    DashboardComponent,
+    AttendanceComponent,
+    PledgesComponent,
+    TeacherNotesComponent
   ],
   imports: [
     BrowserModule,

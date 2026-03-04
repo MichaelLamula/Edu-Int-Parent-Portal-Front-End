@@ -1,0 +1,57 @@
+<div class="dashboard-header">
+  <h2>STUDENT DASHBOARD:</h2>
+  <select (change)="selectStudent($event)" [value]="selectedStudentId()">
+    @for (student of students(); track student.id) {
+      <option [value]="student.id">{{ student.name }}</option>
+    }
+  </select>
+</div>
+
+<section class="career-tracker">
+  <h3>CAREER & APS TRACKER</h3>
+  @for (career of currentStudent().careers; track career.name; let i = $index) {
+    <div class="career-row">
+      <span>Career {{ i + 1 }}: [{{ career.name }}]</span>
+      <span>Target APS: [{{ career.targetAPS }}]</span>
+    </div>
+  }
+</section>
+
+<section class="progress-tracker">
+  <h3>CURRENT TERM PROGRESS VS. PLEDGE</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Pledge Target</th>
+        <th>Current Mark</th>
+        <th>APS Diff</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of currentStudent().progress; track item.subject) {
+        <tr>
+          <td>{{ item.subject }}</td>
+          <td>{{ item.pledgeTarget }}%</td>
+          <td>{{ item.currentMark }}%</td>
+          <td>{{ item.apsDiff > 0 ? '+' : '' }}{{ item.apsDiff }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>
+
+<section class="attendance-snapshot">
+  <h3>ATTENDANCE SNAPSHOT</h3>
+  <div class="attendance-stats">
+    <span>Weekly Classes: {{ currentStudent().attendance.weekly }}%</span>
+    <span>Extra Classes: {{ currentStudent().attendance.extra }}%</span>
+  </div>
+</section>
+
+<section class="teacher-comments">
+  <h3>RECENT TEACHER COMMENTS</h3>
+  @for (comment of currentStudent().comments; track comment.subject) {
+    <p>{{ comment.subject }}: "{{ comment.text }}"</p>
+  }
+</section>
