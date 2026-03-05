@@ -1,2 +1,53 @@
-<h2>Performance</h2>
-<p>Attendance content goes here.</p>
+<div class="performance-container">
+  <h2>Performance & Teacher Details</h2>
+
+  <div class="selection-area">
+    <div class="input-group">
+      <label for="student-select">Select Student:</label>
+      <select id="student-select" (change)="onStudentChange($event)">
+        <option value="">-- Select a Student --</option>
+        @for (student of students(); track student.id) {
+          <option [value]="student.id">{{ student.name }}</option>
+        }
+      </select>
+    </div>
+
+    @if (selectedStudentId()) {
+      <div class="input-group">
+        <label for="subject-select">Select Subject:</label>
+        <select id="subject-select" (change)="onSubjectChange($event)">
+          <option value="">-- Select a Subject --</option>
+          @for (subject of currentStudentSubjects(); track subject.name) {
+            <option [value]="subject.name">{{ subject.name }}</option>
+          }
+        </select>
+      </div>
+    }
+  </div>
+
+  @if (currentSubjectDetails(); as subject) {
+    <div class="teacher-details-card">
+      <h3>Teacher Information</h3>
+      <div class="detail-row">
+        <span class="label">Subject:</span>
+        <span class="value">{{ subject.name }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Teacher Name:</span>
+        <span class="value">{{ subject.teacher.name }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Email:</span>
+        <span class="value"><a href="mailto:{{ subject.teacher.email }}">{{ subject.teacher.email }}</a></span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Office Hours:</span>
+        <span class="value">{{ subject.teacher.officeHours }}</span>
+      </div>
+    </div>
+  } @else if (selectedStudentId() && !selectedSubjectName()) {
+    <p class="placeholder-text">Please select a subject to view teacher details.</p>
+  } @else if (!selectedStudentId()) {
+    <p class="placeholder-text">Please select a student to begin.</p>
+  }
+</div>
