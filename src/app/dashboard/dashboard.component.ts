@@ -26,20 +26,20 @@ export class DashboardComponent {
   navTiles: NavTile[] = [
     {
       title: 'Performance',
-      description: '',
-      imageUrl: 'assets/images/timetable.png',
+      description: 'Student excellence and academic rigor.',
+      imageUrl: 'assets/images/performance.png',
       route: 'performance'
     },
     {
       title: 'Pledges',
-      description: '',
-      imageUrl: 'assets/images/performance.png',
+      description: 'Student collective commitment.',
+      imageUrl: 'assets/images/pledge.png',
       route: 'pledges'
     },
     {
       title: 'Teacher Notes',
-      description: '',
-      imageUrl: 'assets/images/mark-book.png',
+      description: 'Teacher administrative and mentorship support.',
+      imageUrl: 'assets/images/teachernotes.png',
       route: 'teacher-notes'
     }
   ];

@@ -1,2 +1,98 @@
-<h2>Pledges</h2>
-<p>Pledges content goes here.</p>
+<div class="pledges-container">
+  <h2>Student Pledges</h2>
+
+  <div class="student-info">
+    <div class="student-selector">
+      <label for="student-select"><strong>Student Name:</strong></label>
+      <select id="student-select" (change)="selectStudent($event)" [value]="selectedStudentId()">
+        @for (student of students(); track student.id) {
+          <option [value]="student.id">{{ student.name }}</option>
+        }
+      </select>
+    </div>
+    <p><strong>Grade:</strong> {{ currentStudent().grade }}</p>
+  </div>
+
+  <div class="career-choices">
+    <h3>Career Choices</h3>
+    <div class="career-row">
+      <div class="career-input-group">
+        <label>Career Choice 1:</label>
+        <input
+          type="text"
+          placeholder="Enter Career 1"
+          [value]="currentStudent().careerChoices[0].name"
+          (input)="updateCareerChoice(0, 'name', $event)"
+        >
+      </div>
+      <div class="career-input-group">
+        <label>Target APS:</label>
+        <input
+          type="number"
+          placeholder="APS"
+          class="aps-input"
+          [value]="currentStudent().careerChoices[0].aps"
+          (input)="updateCareerChoice(0, 'aps', $event)"
+        >
+      </div>
+    </div>
+    <div class="career-row">
+      <div class="career-input-group">
+        <label>Career Choice 2:</label>
+        <input
+          type="text"
+          placeholder="Enter Career 2"
+          [value]="currentStudent().careerChoices[1].name"
+          (input)="updateCareerChoice(1, 'name', $event)"
+        >
+      </div>
+      <div class="career-input-group">
+        <label>Target APS:</label>
+        <input
+          type="number"
+          placeholder="APS"
+          class="aps-input"
+          [value]="currentStudent().careerChoices[1].aps"
+          (input)="updateCareerChoice(1, 'aps', $event)"
+        >
+      </div>
+    </div>
+    <div class="actions">
+      <button class="save-btn" (click)="savePledges()">Save Career Choices</button>
+    </div>
+  </div>
+
+  <table class="pledges-table">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Teacher</th>
+        <th>Pledge Target (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (subject of currentStudent().subjects; track subject.subject; let i = $index) {
+        <tr>
+          <td>{{ subject.subject }}</td>
+          <td>{{ subject.teacher }}</td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              max="100"
+              [value]="subject.pledge"
+              (input)="updatePledge(i, $event)"
+              placeholder="Enter %"
+              class="pledge-input"
+              [disabled]="subject.isLocked"
+            >
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <button class="save-btn" (click)="savePledges()">Save Pledges</button>
+  </div>
+</div>
