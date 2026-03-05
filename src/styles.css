@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url('assets/images/main.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+.container {
+  border-radius: 15px;
+  background-color: #f0f0f0; /* A light grey */
+  padding: 20px;
+  margin: 20px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.btn-green {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.btn-logout {
+  background-color: #f44336; /* Red */
+  color: white;
+}

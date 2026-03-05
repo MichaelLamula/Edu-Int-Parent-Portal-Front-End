@@ -1,38 +1,38 @@
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.dashboard .header {
   margin-bottom: 20px;
 }
 
-.career-tracker, .progress-tracker, .attendance-snapshot, .teacher-comments {
-  margin-bottom: 20px;
-  border: 1px solid #eee;
-  padding: 15px;
+.tiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.career-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+.tile {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+  overflow: hidden;
 }
 
-table {
+.tile:hover {
+  transform: translateY(-5px);
+}
+
+.tile img {
   width: 100%;
-  border-collapse: collapse;
+  height: 150px;
+  object-fit: cover;
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.tile-content {
+  padding: 20px;
 }
 
-th {
-  background-color: #f2f2f2;
-}
-
-.attendance-stats {
-  display: flex;
-  justify-content: space-around;
+.tile h3 {
+  margin-top: 0;
 }
