@@ -30,6 +30,47 @@
     </tbody>
   </table>
 
+  <div class="ai-recommendations-section">
+    <h3><span class="ai-icon">✨</span> AI Recommendations & Analysis</h3>
+    <p class="ai-intro">Based on the teacher's feedback, here are personalized recommendations to help the student improve.</p>
+
+    <div class="recommendations-grid">
+      @for (note of notes(); track note.id) {
+        @if (getRecommendation(note.id); as rec) {
+          <div class="recommendation-card">
+            <div class="rec-header">
+              <span class="subject-tag">{{ note.subject }}</span>
+              <span class="date-tag">{{ note.date }}</span>
+            </div>
+            <div class="rec-content">
+              <h4>Analysis</h4>
+              <p>{{ rec.analysis }}</p>
+
+              <h4>Recommended Actions</h4>
+              <ul>
+                @for (action of rec.recommendedActions; track action) {
+                  <li>{{ action }}</li>
+                }
+              </ul>
+
+              @if (rec.youtubeLinks.length > 0) {
+                <h4>Helpful Videos</h4>
+                <div class="video-links">
+                  @for (video of rec.youtubeLinks; track video.title) {
+                    <a [href]="video.url" target="_blank" class="video-link">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                      {{ video.title }}
+                    </a>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+
   @if (isModalOpen()) {
     <div class="modal-overlay" (click)="closeModal()">
       <div class="modal-content" (click)="$event.stopPropagation()">
