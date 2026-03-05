@@ -1,21 +1,22 @@
 .portal-container {
   font-family: Arial, sans-serif;
-  max-width: 1400px; /* Increased width from 1200px to 1400px */
-  margin: 0 auto;
-  border: 1px solid #ccc;
+  width: 100%; /* Changed from max-width to width: 100% */
+  max-width: none; /* Removed max-width restriction */
+  margin: 0; /* Removed auto margin */
+  border: none; /* Removed border as it spans full width */
   padding: 20px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border-radius: 15px; /* Added rounded corners to the main container */
-  overflow: hidden; /* Ensures content doesn't overflow the rounded corners */
+  /* border-radius: 15px;  Removed border radius for full screen look, or keep if you want padding around */
+  overflow: hidden; /* Ensures content doesn't overflow */
   background-color: #f0f0f0; /* Greyish background color */
-  background-image: url('/assets/images/main.png'); /* Added background image */
+  background-image: url('../../assets/images/main.png'); /* Corrected path */
   background-size: cover; /* Ensure the image covers the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-blend-mode: overlay; /* Blend the image with the background color */
+  /* background-blend-mode: overlay;  Removed blend mode to show image clearly */
 }
 
 .header {
@@ -26,9 +27,10 @@
   padding-bottom: 10px;
   margin-bottom: 20px;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  background-color: rgba(255, 255, 255, 0.6); /* More transparent background */
   padding: 10px;
   border-radius: 10px;
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
 }
 
 .logo-section {
@@ -36,16 +38,14 @@
   align-items: center;
 }
 
-.logo-placeholder {
-  width: 50px;
-  height: 50px;
-  background-color: #ddd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logo-image {
+  width: 80px; /* Increased from 50px */
+  height: 80px; /* Increased from 50px */
   margin-right: 15px;
-  font-weight: bold;
-  border-radius: 8px; /* Added rounded corners to logo placeholder */
+  border-radius: 50%; /* Makes the logo round */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border: 2px solid #fff; /* Optional: adds a white border around the logo */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
 }
 
 .logout-btn {
@@ -73,18 +73,20 @@
 .sidenav-container {
   width: 250px;
   flex-shrink: 0;
-  border: 1px solid #eee; /* Changed to full border for better visibility of rounded corners */
+  border: 1px solid rgba(238, 238, 238, 0.5); /* More transparent border */
   padding: 15px; /* Increased padding */
   overflow-y: auto;
   border-radius: 10px; /* Added rounded corners to sidenav container */
-  background-color: rgba(249, 249, 249, 0.9); /* Semi-transparent background */
+  background-color: rgba(249, 249, 249, 0.7); /* More transparent background */
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
 }
 
 .content-container {
   flex-grow: 1;
   overflow-y: auto;
   padding: 15px; /* Increased padding */
-  border: 1px solid #eee; /* Added border to match sidenav */
+  border: 1px solid rgba(238, 238, 238, 0.5); /* More transparent border */
   border-radius: 10px; /* Added rounded corners to content container */
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.7); /* More transparent background */
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
 }
