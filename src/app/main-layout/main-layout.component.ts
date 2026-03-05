@@ -7,7 +7,7 @@ import { Component, signal } from '@angular/core';
   standalone: false
 })
 export class MainLayoutComponent {
-  protected readonly parentName = signal('John Doe');
+  protected readonly parentName = signal('Mr Sodasi Lamula');
 
   logout() {
     console.log('Logout clicked');
