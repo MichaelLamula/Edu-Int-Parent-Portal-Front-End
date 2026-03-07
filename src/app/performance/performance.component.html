@@ -45,6 +45,64 @@
         <span class="value">{{ subject.teacher.officeHours }}</span>
       </div>
     </div>
+
+    <div class="performance-details-card">
+      <h3>Performance Information</h3>
+      <div class="detail-row">
+        <span class="label">Student Pledge:</span>
+        <span class="value">{{ subject.pledge }}%</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Average Marks:</span>
+        <span class="value">{{ subject.averageMarks }}%</span>
+      </div>
+
+      @if (subject.averageMarks >= subject.pledge) {
+        <div class="performance-message good">
+          <p>The student is doing well! Their average is above their pledge.</p>
+        </div>
+      } @else {
+        <div class="performance-message bad">
+          <p>The student is not meeting their pledge. They need to improve.</p>
+        </div>
+      }
+
+      <div class="chart-container">
+        <!-- Pie Chart using conic-gradient -->
+        <div class="pie-chart" [style.background]="'conic-gradient(#4caf50 0% ' + subject.pledge + '%, #f44336 ' + subject.pledge + '% 100%)'"></div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="color-box" style="--color: #4caf50"></span>
+            Pledge ({{subject.pledge}}%)
+          </div>
+          <div class="legend-item">
+            <span class="color-box" style="--color: #f44336"></span>
+            Remaining ({{100 - subject.pledge}}%)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attendance-details-card">
+      <h3>Attendance Report</h3>
+      <div class="detail-row">
+        <span class="label">Total Classes:</span>
+        <span class="value">{{ subject.attendance.totalClasses }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Present Days:</span>
+        <span class="value">{{ subject.attendance.present }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Absent Days:</span>
+        <span class="value">{{ subject.attendance.absent }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Attendance Rate:</span>
+        <span class="value">{{ (subject.attendance.present / subject.attendance.totalClasses * 100).toFixed(1) }}%</span>
+      </div>
+    </div>
+
   } @else if (selectedStudentId() && !selectedSubjectName()) {
     <p class="placeholder-text">Please select a subject to view teacher details.</p>
   } @else if (!selectedStudentId()) {
