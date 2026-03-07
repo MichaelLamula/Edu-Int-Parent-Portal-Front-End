@@ -29,7 +29,7 @@
   width: 200px;
 }
 
-.teacher-details-card, .performance-details-card, .attendance-details-card {
+.teacher-details-card, .performance-details-card, .attendance-details-card, .assessment-details-card {
   background-color: #f9f9f9;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -38,7 +38,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.teacher-details-card h3, .performance-details-card h3, .attendance-details-card h3 {
+.teacher-details-card h3, .performance-details-card h3, .attendance-details-card h3, .assessment-details-card h3 {
   margin-top: 0;
   margin-bottom: 15px;
   color: #333;
@@ -108,6 +108,8 @@
   position: relative;
   margin-bottom: 15px;
   border: 1px solid #ddd; /* Light border to see the full circle if empty */
+  box-shadow: 0 10px 10px rgba(0,0,0,0.2); /* 3D shadow effect */
+  transform: rotateX(40deg); /* Tilt the chart for 3D perspective */
 }
 
 /* Create the hole for the doughnut chart */
@@ -121,6 +123,7 @@
   height: 80px;
   background-color: #f9f9f9; /* Match the card background color */
   border-radius: 50%;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,0.1); /* Inner shadow for depth */
 }
 
 .chart-legend {
@@ -142,4 +145,16 @@
   margin-right: 8px;
   border-radius: 2px;
   background-color: var(--color);
+}
+
+.assessment-result {
+  margin-top: 15px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.assessment-result h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #444;
 }
