@@ -6,9 +6,18 @@ interface Teacher {
   officeHours: string;
 }
 
+interface Attendance {
+  present: number;
+  absent: number;
+  totalClasses: number;
+}
+
 interface Subject {
   name: string;
   teacher: Teacher;
+  pledge: number;
+  averageMarks: number;
+  attendance: Attendance;
 }
 
 interface Student {
@@ -31,15 +40,24 @@ export class PerformanceComponent {
       subjects: [
         {
           name: 'Mathematics',
-          teacher: { name: 'Mr. Smith', email: 'smith@school.edu', officeHours: 'Mon, Wed 14:00-15:00' }
+          teacher: { name: 'Mr. Smith', email: 'smith@school.edu', officeHours: 'Mon, Wed 14:00-15:00' },
+          pledge: 80,
+          averageMarks: 85,
+          attendance: { present: 45, absent: 5, totalClasses: 50 }
         },
         {
           name: 'Physics',
-          teacher: { name: 'Ms. Johnson', email: 'johnson@school.edu', officeHours: 'Tue, Thu 10:00-11:00' }
+          teacher: { name: 'Ms. Johnson', email: 'johnson@school.edu', officeHours: 'Tue, Thu 10:00-11:00' },
+          pledge: 75,
+          averageMarks: 70,
+          attendance: { present: 40, absent: 10, totalClasses: 50 }
         },
         {
           name: 'English',
-          teacher: { name: 'Mrs. Davis', email: 'davis@school.edu', officeHours: 'Fri 13:00-14:00' }
+          teacher: { name: 'Mrs. Davis', email: 'davis@school.edu', officeHours: 'Fri 13:00-14:00' },
+          pledge: 85,
+          averageMarks: 88,
+          attendance: { present: 48, absent: 2, totalClasses: 50 }
         }
       ]
     },
@@ -49,15 +67,24 @@ export class PerformanceComponent {
       subjects: [
         {
           name: 'Life Sciences',
-          teacher: { name: 'Mr. Green', email: 'green@school.edu', officeHours: 'Mon, Fri 09:00-10:00' }
+          teacher: { name: 'Mr. Green', email: 'green@school.edu', officeHours: 'Mon, Fri 09:00-10:00' },
+          pledge: 70,
+          averageMarks: 72,
+          attendance: { present: 42, absent: 8, totalClasses: 50 }
         },
         {
           name: 'Physical Sciences',
-          teacher: { name: 'Ms. White', email: 'white@school.edu', officeHours: 'Wed 11:00-12:00' }
+          teacher: { name: 'Ms. White', email: 'white@school.edu', officeHours: 'Wed 11:00-12:00' },
+          pledge: 65,
+          averageMarks: 60,
+          attendance: { present: 35, absent: 15, totalClasses: 50 }
         },
         {
           name: 'Accounting',
-          teacher: { name: 'Mrs. Black', email: 'black@school.edu', officeHours: 'Tue 15:00-16:00' }
+          teacher: { name: 'Mrs. Black', email: 'black@school.edu', officeHours: 'Tue 15:00-16:00' },
+          pledge: 80,
+          averageMarks: 75,
+          attendance: { present: 46, absent: 4, totalClasses: 50 }
         }
       ]
     }

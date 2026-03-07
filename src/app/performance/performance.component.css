@@ -29,7 +29,7 @@
   width: 200px;
 }
 
-.teacher-details-card {
+.teacher-details-card, .performance-details-card, .attendance-details-card {
   background-color: #f9f9f9;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -38,7 +38,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.teacher-details-card h3 {
+.teacher-details-card h3, .performance-details-card h3, .attendance-details-card h3 {
   margin-top: 0;
   margin-bottom: 15px;
   color: #333;
@@ -73,4 +73,73 @@
   color: #777;
   font-style: italic;
   margin-top: 20px;
+}
+
+.performance-message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.performance-message.good {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.performance-message.bad {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pie-chart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 15px;
+  border: 1px solid #ddd; /* Light border to see the full circle if empty */
+}
+
+/* Create the hole for the doughnut chart */
+.pie-chart::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; /* Adjust size for thickness of the ring */
+  height: 80px;
+  background-color: #f9f9f9; /* Match the card background color */
+  border-radius: 50%;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.color-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 2px;
+  background-color: var(--color);
 }
