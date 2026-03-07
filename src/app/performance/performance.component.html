@@ -44,6 +44,32 @@
         <span class="label">Office Hours:</span>
         <span class="value">{{ subject.teacher.officeHours }}</span>
       </div>
+
+      @if (subject.pledge >= subject.schoolTarget) {
+        <div class="performance-message good">
+          <p>The subject is doing well.</p>
+        </div>
+      } @else {
+        <div class="performance-message bad">
+          <p>Subject performance is not doing well.</p>
+        </div>
+      }
+
+      <div class="chart-container">
+        <h4>{{currentSubjectDetails()?.name}} Overall Performance</h4>
+        <!-- Pie Chart comparing Pledge vs School Target -->
+        <div class="pie-chart" [style.background]="getSchoolTargetPieChartBackground(subject)"></div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="color-box" style="--color: #2196F3"></span>
+            Pass Rate ({{ subject.pledge }}%)
+          </div>
+          <div class="legend-item">
+            <span class="color-box" style="--color: #FF9800"></span>
+            School Target ({{ subject.schoolTarget }}%)
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="performance-details-card">
@@ -56,6 +82,10 @@
         <span class="label">Average Marks:</span>
         <span class="value">{{ subject.averageMarks }}%</span>
       </div>
+     <!-- <div class="detail-row">
+        <span class="label">School Target:</span>
+        <span class="value">{{ subject.schoolTarget }}%</span>
+      </div>-->
 
       @if (subject.averageMarks >= subject.pledge) {
         <div class="performance-message good">
@@ -68,6 +98,7 @@
       }
 
       <div class="chart-container">
+        <h4>Pledge vs Average</h4>
         <!-- Pie Chart comparing Pledge vs Average Marks -->
         <div class="pie-chart" [style.background]="getPieChartBackground(subject)"></div>
         <div class="chart-legend">
