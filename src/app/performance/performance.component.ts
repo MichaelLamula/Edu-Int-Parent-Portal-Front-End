@@ -25,6 +25,7 @@ interface Subject {
   averageMarks: number;
   attendance: Attendance;
   assessments: Assessment[];
+  schoolTarget: number; // Added school target pledge
 }
 
 interface Student {
@@ -55,7 +56,8 @@ export class PerformanceComponent {
             { name: 'Test 1', marks: 80, totalMarks: 100 },
             { name: 'Assignment 1', marks: 90, totalMarks: 100 },
             { name: 'Mid-Term Exam', marks: null, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 75
         },
         {
           name: 'Physics',
@@ -67,7 +69,8 @@ export class PerformanceComponent {
             { name: 'Lab Report 1', marks: 70, totalMarks: 100 },
             { name: 'Test 1', marks: 65, totalMarks: 100 },
             { name: 'Project', marks: 75, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 70
         },
         {
           name: 'English',
@@ -79,7 +82,8 @@ export class PerformanceComponent {
             { name: 'Essay 1', marks: 85, totalMarks: 100 },
             { name: 'Oral Presentation', marks: 90, totalMarks: 100 },
             { name: 'Final Exam', marks: null, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 80
         }
       ]
     },
@@ -96,7 +100,8 @@ export class PerformanceComponent {
           assessments: [
             { name: 'Test 1', marks: 70, totalMarks: 100 },
             { name: 'Assignment 1', marks: 75, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 65
         },
         {
           name: 'Physical Sciences',
@@ -107,7 +112,8 @@ export class PerformanceComponent {
           assessments: [
             { name: 'Test 1', marks: 55, totalMarks: 100 },
             { name: 'Experiment 1', marks: 65, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 60
         },
         {
           name: 'Accounting',
@@ -118,7 +124,8 @@ export class PerformanceComponent {
           assessments: [
             { name: 'Test 1', marks: 75, totalMarks: 100 },
             { name: 'Project', marks: 80, totalMarks: 100 }
-          ]
+          ],
+          schoolTarget: 70
         }
       ]
     }
@@ -161,6 +168,15 @@ export class PerformanceComponent {
     const averageColor = subject.averageMarks >= subject.pledge ? '#4CAF50' : '#F44336'; // Green if good, Red if bad
     const pledgeColor = '#2196F3'; // Blue for Pledge
     return `conic-gradient(${pledgeColor} 0% ${pledgePct}%, ${averageColor} ${pledgePct}% 100%)`;
+  }
+
+  getSchoolTargetPieChartBackground(subject: Subject): string {
+    const total = subject.pledge + subject.schoolTarget;
+    if (total === 0) return 'none';
+    const pledgePct = (subject.pledge / total) * 100;
+    const targetColor = '#FF9800'; // Orange for School Target
+    const pledgeColor = '#2196F3'; // Blue for Pledge
+    return `conic-gradient(${pledgeColor} 0% ${pledgePct}%, ${targetColor} ${pledgePct}% 100%)`;
   }
 
   onStudentChange(event: Event) {
