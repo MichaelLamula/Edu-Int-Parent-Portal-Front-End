@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -9,8 +10,11 @@ import { Component, signal } from '@angular/core';
 export class MainLayoutComponent {
   protected readonly parentName = signal('Mr Sodasi Lamula');
 
+  constructor(private router: Router) {}
+
   logout() {
     console.log('Logout clicked');
-    // Implement logout logic here
+    // In a real application, you would clear the user session/token here.
+    this.router.navigate(['/login']);
   }
 }

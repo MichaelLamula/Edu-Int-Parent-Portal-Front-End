@@ -1,5 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
@@ -10,6 +11,7 @@ import { PerformanceComponent } from './performance/performance.component';
 import { PledgesComponent } from './pledges/pledges.component';
 import { TeacherNotesComponent } from './teacher-notes/teacher-notes.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { TimetableComponent } from './timetable/timetable.component';
     PerformanceComponent,
     PledgesComponent,
     TeacherNotesComponent,
-    TimetableComponent
+    TimetableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
