@@ -68,16 +68,16 @@
       }
 
       <div class="chart-container">
-        <!-- Pie Chart using conic-gradient -->
-        <div class="pie-chart" [style.background]="'conic-gradient(#4caf50 0% ' + subject.pledge + '%, #f44336 ' + subject.pledge + '% 100%)'"></div>
+        <!-- Pie Chart comparing Pledge vs Average Marks -->
+        <div class="pie-chart" [style.background]="getPieChartBackground(subject)"></div>
         <div class="chart-legend">
           <div class="legend-item">
-            <span class="color-box" style="--color: #4caf50"></span>
+            <span class="color-box" style="--color: #2196F3"></span>
             Pledge ({{subject.pledge}}%)
           </div>
           <div class="legend-item">
-            <span class="color-box" style="--color: #f44336"></span>
-            Remaining ({{100 - subject.pledge}}%)
+            <span class="color-box" [style.--color]="subject.averageMarks >= subject.pledge ? '#4CAF50' : '#F44336'"></span>
+            Average Marks ({{subject.averageMarks}}%)
           </div>
         </div>
       </div>
@@ -101,6 +101,37 @@
         <span class="label">Attendance Rate:</span>
         <span class="value">{{ (subject.attendance.present / subject.attendance.totalClasses * 100).toFixed(1) }}%</span>
       </div>
+    </div>
+
+    <div class="assessment-details-card">
+      <h3>Formative Assessments</h3>
+      <div class="input-group">
+        <label for="assessment-select">Select Assessment:</label>
+        <select id="assessment-select" (change)="onAssessmentChange($event)">
+          <option value="">-- Select an Assessment --</option>
+          @for (assessment of subject.assessments; track assessment.name) {
+            <option [value]="assessment.name">{{ assessment.name }}</option>
+          }
+        </select>
+      </div>
+
+      @if (currentAssessmentDetails(); as assessment) {
+        <div class="assessment-result">
+          <h4>{{ assessment.name }} Results</h4>
+          @if (assessment.marks !== null) {
+            <!--<div class="detail-row">
+              <span class="label">Marks Obtained:</span>
+              <span class="value">{{ assessment.marks }} / {{ assessment.totalMarks }}</span>
+            </div>-->
+            <div class="detail-row">
+              <span class="label">Percentage:</span>
+              <span class="value">{{ (assessment.marks / assessment.totalMarks * 100).toFixed(1) }}%</span>
+            </div>
+          } @else {
+            <p class="placeholder-text">Marks for selected assessment not yet available.</p>
+          }
+        </div>
+      }
     </div>
 
   } @else if (selectedStudentId() && !selectedSubjectName()) {
