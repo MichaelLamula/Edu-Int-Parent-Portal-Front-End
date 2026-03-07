@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { PledgesComponent } from './pledges/pledges.component';
 import { TeacherNotesComponent } from './teacher-notes/teacher-notes.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'performance', component: PerformanceComponent },
       { path: 'pledges', component: PledgesComponent },
       { path: 'teacher-notes', component: TeacherNotesComponent },
+      { path: 'timetable', component: TimetableComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }

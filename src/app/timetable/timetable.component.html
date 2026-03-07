@@ -1,0 +1,44 @@
+<div class="timetable-container">
+  <h2>Student Timetable</h2>
+
+  <div class="selection-area">
+    <div class="input-group">
+      <label for="student-select">Select Student:</label>
+      <select id="student-select" (change)="onStudentChange($event)">
+        <option value="">-- Select a Student --</option>
+        @for (student of students(); track student.id) {
+          <option [value]="student.id">{{ student.name }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  @if (selectedStudentId()) {
+    <div class="timetable-grid">
+      <div class="header-row">
+        <div class="header-cell">Time</div>
+        <div class="header-cell">Monday</div>
+        <div class="header-cell">Tuesday</div>
+        <div class="header-cell">Wednesday</div>
+        <div class="header-cell">Thursday</div>
+        <div class="header-cell">Friday</div>
+        <div class="header-cell weekend">Saturday</div>
+        <div class="header-cell weekend">Sunday</div>
+      </div>
+      @for (slot of currentStudentTimetable(); track slot.time) {
+        <div class="timetable-row">
+          <div class="time-cell">{{ slot.time }}</div>
+          <div class="subject-cell" [style.background-color]="getSubjectColor(slot.monday)">{{ slot.monday || '-' }}</div>
+          <div class="subject-cell" [style.background-color]="getSubjectColor(slot.tuesday)">{{ slot.tuesday || '-' }}</div>
+          <div class="subject-cell" [style.background-color]="getSubjectColor(slot.wednesday)">{{ slot.wednesday || '-' }}</div>
+          <div class="subject-cell" [style.background-color]="getSubjectColor(slot.thursday)">{{ slot.thursday || '-' }}</div>
+          <div class="subject-cell" [style.background-color]="getSubjectColor(slot.friday)">{{ slot.friday || '-' }}</div>
+          <div class="subject-cell weekend" [style.background-color]="getSubjectColor(slot.saturday)">{{ slot.saturday || '-' }}</div>
+          <div class="subject-cell weekend" [style.background-color]="getSubjectColor(slot.sunday)">{{ slot.sunday || '-' }}</div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="placeholder-text">Please select a student to view their timetable.</p>
+  }
+</div>

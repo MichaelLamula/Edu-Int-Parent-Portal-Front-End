@@ -41,6 +41,12 @@ export class DashboardComponent {
       description: 'Teacher administrative and mentorship support.',
       imageUrl: 'assets/images/teachernotes.png',
       route: 'teacher-notes'
+    },
+    {
+      title: 'Timetable',
+      description: 'Student class schedule and time management.',
+      imageUrl: 'assets/images/timetable.png',
+      route: 'timetable'
     }
   ];
 }
