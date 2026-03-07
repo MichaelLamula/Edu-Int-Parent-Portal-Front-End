@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { PledgesComponent } from './pledges/pledges.component';
 import { TeacherNotesComponent } from './teacher-notes/teacher-notes.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TeacherNotesComponent } from './teacher-notes/teacher-notes.component';
     DashboardComponent,
     PerformanceComponent,
     PledgesComponent,
-    TeacherNotesComponent
+    TeacherNotesComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,

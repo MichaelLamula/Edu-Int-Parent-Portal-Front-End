@@ -1,0 +1,99 @@
+.timetable-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.selection-area {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.input-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 120px repeat(7, 1fr); /* 7 days + time column */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header-row {
+  display: contents;
+}
+
+.header-cell {
+  background-color: #f2f2f2;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.header-cell:last-child {
+  border-right: none;
+}
+
+.header-cell.weekend {
+  background-color: #e0e0e0; /* Slightly darker for weekends */
+}
+
+.timetable-row {
+  display: contents;
+}
+
+.time-cell, .subject-cell {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px; /* Ensure cells have some height */
+}
+
+.time-cell {
+  font-weight: bold;
+  background-color: #fafafa;
+  font-size: 0.85em;
+}
+
+.subject-cell {
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.subject-cell:last-child {
+  border-right: none;
+}
+
+.timetable-row:last-child .time-cell,
+.timetable-row:last-child .subject-cell {
+  border-bottom: none;
+}
+
+.placeholder-text {
+  color: #777;
+  font-style: italic;
+  margin-top: 20px;
+}
